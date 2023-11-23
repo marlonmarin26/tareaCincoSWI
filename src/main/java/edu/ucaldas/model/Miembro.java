@@ -40,6 +40,13 @@ public class Miembro {
         this.instrumentos = instrumentos;
     }
 
+    public Miembro buscaMiembro(String nombre){
+        if (this.nombre.equals(nombre)){
+            return this;
+        }
+        return null;
+    }
+
     @Override
     public String toString() {
         return "Miembro [nombre=" + nombre + ", rol=" + rol + ", instrumentos=" + instrumentos + "]";
