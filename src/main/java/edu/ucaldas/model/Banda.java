@@ -2,6 +2,7 @@ package edu.ucaldas.model;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Clase Banda, representa una banda musical.
@@ -11,11 +12,13 @@ public class Banda {
     private String genero;
     private LocalDate fechaCreacion;
     private List<Foto> fotos;
+    private List<Miembro> miembros;
 
-    public Banda(String genero, LocalDate fechaCreacion, List<Foto> fotos) {
+    public Banda(String genero, LocalDate fechaCreacion, List<Foto> fotos, List<Miembro> miembros) {
         this.genero = genero;
         this.fechaCreacion = fechaCreacion;
         this.fotos = fotos;
+        this.miembros = miembros;
     }
 
     public Banda() {
@@ -45,9 +48,39 @@ public class Banda {
         this.fotos = fotos;
     }
 
+    public List<Miembro> getMiembros() {
+        return miembros;
+    }
+
+    public void setMiembros(List<Miembro> miembros) {
+        this.miembros = miembros;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Banda other = (Banda) obj;
+
+        return genero.equals(other.genero) && fechaCreacion.equals(other.fechaCreacion)
+                && Objects.equals(fotos, other.fotos) && Objects.equals(miembros, other.miembros);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(genero, fechaCreacion, fotos, miembros);
+    }
+
     @Override
     public String toString() {
-        return "Banda [genero=" + genero + ", fechaCreacion=" + fechaCreacion + ", fotos=" + fotos + "]";
+        return "Banda [genero=" + genero + ", fechaCreacion=" + fechaCreacion + ", fotos=" + fotos + ", miembros=" + miembros + "]";
     }
+
 
 }

@@ -1,5 +1,7 @@
 package edu.ucaldas.model;
 
+import java.util.Objects;
+
 /**
  * Clase Cancion, representa una cancion de un album.
  */
@@ -30,6 +32,26 @@ public class Cancion {
 
     public void setDuracion(String duracion) {
         this.duracion = duracion;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Cancion other = (Cancion) obj;
+
+        return nombre.equals(other.nombre) && duracion.equals(other.duracion);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, duracion);
     }
 
     @Override

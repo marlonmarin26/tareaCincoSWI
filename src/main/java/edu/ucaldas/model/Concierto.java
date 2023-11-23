@@ -2,6 +2,7 @@ package edu.ucaldas.model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Objects;
 
 /**
  * Clase Concierto, representa un concierto de una banda.
@@ -13,10 +14,10 @@ public class Concierto {
     private String lugar;
     private LocalTime hora;
     private int capacidad;
-    private String boletasVendidas;
+    private int boletasVendidas;
 
     public Concierto(String nombre, LocalDate fecha, String lugar, LocalTime hora, int capacidad,
-            String boletasVendidas) {
+            int boletasVendidas) {
         this.nombre = nombre;
         this.fecha = fecha;
         this.lugar = lugar;
@@ -48,7 +49,7 @@ public class Concierto {
         return capacidad;
     }
 
-    public String getBoletasVendidas() {
+    public int getBoletasVendidas() {
         return boletasVendidas;
     }
 
@@ -72,8 +73,33 @@ public class Concierto {
         this.capacidad = capacidad;
     }
 
-    public void setBoletasVendidas(String boletasVendidas) {
+    public void setBoletasVendidas(int boletasVendidas) {
         this.boletasVendidas = boletasVendidas;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Concierto other = (Concierto) obj;
+
+        return nombre.equals(other.nombre)
+                && fecha.equals(other.fecha)
+                && lugar.equals(other.lugar)
+                && hora.equals(other.hora)
+                && capacidad == other.capacidad
+                && boletasVendidas == other.boletasVendidas;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, fecha, lugar, hora, capacidad, boletasVendidas);
     }
 
     @Override
@@ -81,6 +107,4 @@ public class Concierto {
         return "Concierto [nombre=" + nombre + ", fecha=" + fecha + ", lugar=" + lugar + ", hora=" + hora
                 + ", capacidad=" + capacidad + ", boletasVendidas=" + boletasVendidas + "]";
     }
-
-    
 }
