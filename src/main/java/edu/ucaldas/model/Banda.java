@@ -2,6 +2,7 @@ package edu.ucaldas.model;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Clase Banda, representa una banda musical.
@@ -43,6 +44,27 @@ public class Banda {
 
     public void setFotos(List<Foto> fotos) {
         this.fotos = fotos;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Banda other = (Banda) obj;
+
+        return genero.equals(other.genero) && fechaCreacion.equals(other.fechaCreacion)
+                && Objects.equals(fotos, other.fotos);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(genero, fechaCreacion, fotos);
     }
 
     @Override

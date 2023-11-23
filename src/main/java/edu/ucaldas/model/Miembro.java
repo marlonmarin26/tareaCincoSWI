@@ -1,5 +1,6 @@
 package edu.ucaldas.model;
 
+import java.util.Objects;
 
 /**
  * Clase Miembro, representa a un miembro de la banda.
@@ -7,10 +8,10 @@ package edu.ucaldas.model;
 public class Miembro {
 
     private String nombre;
-    private String rol;
+    private Rol rol;
     private String instrumentos;
 
-    public Miembro(String nombre, String rol, String instrumentos) {
+    public Miembro(String nombre, Rol rol, String instrumentos) {
         this.nombre = nombre;
         this.rol = rol;
         this.instrumentos = instrumentos;
@@ -20,7 +21,7 @@ public class Miembro {
         return nombre;
     }
 
-    public String getRol() {
+    public Rol getRol() {
         return rol;
     }
 
@@ -32,12 +33,34 @@ public class Miembro {
         this.nombre = nombre;
     }
 
-    public void setRol(String rol) {
+    public void setRol(Rol rol) {
         this.rol = rol;
     }
 
     public void setInstrumentos(String instrumentos) {
         this.instrumentos = instrumentos;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Miembro other = (Miembro) obj;
+
+        return nombre.equals(other.nombre)
+                && rol == other.rol
+                && Objects.equals(instrumentos, other.instrumentos);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, rol, instrumentos);
     }
 
     @Override
