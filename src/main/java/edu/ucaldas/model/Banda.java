@@ -1,6 +1,7 @@
 package edu.ucaldas.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -11,8 +12,8 @@ public class Banda {
 
     private String genero;
     private LocalDate fechaCreacion;
-    private List<Foto> fotos;
-    private List<Miembro> miembros;
+    private List<Foto> fotos = new ArrayList<>();
+    private List<Miembro> miembros = new ArrayList<>();
 
     public Banda(String genero, LocalDate fechaCreacion, List<Foto> fotos, List<Miembro> miembros) {
         this.genero = genero;
@@ -82,5 +83,26 @@ public class Banda {
         return "Banda [genero=" + genero + ", fechaCreacion=" + fechaCreacion + ", fotos=" + fotos + ", miembros=" + miembros + "]";
     }
 
+    /*
+     * se adiciona miembro a la List de miembros
+     */
+    public void adicionarMiembro(Miembro miembro){
+        miembros.add(miembro);
+    }
 
+    public Miembro buscarMiembro(Miembro miembro){
+        if (miembros.contains(miembro)) {
+            return miembro;
+        } else {
+            throw new MiembroExcepcion("El miembro no existe");
+        }
+    }
+    public void eliminarMiembro(Miembro miembro){
+        if (miembros.contains(miembro)) {
+            miembros.remove(miembro);
+        } else {
+            throw new MiembroExcepcion("El miembro no existe");
+        }
+    }
+    
 }
