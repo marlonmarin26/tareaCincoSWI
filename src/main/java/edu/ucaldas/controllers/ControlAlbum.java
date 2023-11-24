@@ -30,9 +30,9 @@ public class ControlAlbum {
         System.out.println("Álbum agregado exitosamente.");
     }
 
-    public static void mostrarAlbumes() {
+    public static void mostrarAlbunes() {
         if (!listaAlbumes.isEmpty()) {
-            System.out.println("Álbumes y sus canciones:");
+            System.out.println("Álbunes y sus canciones:");
             for (Album album : listaAlbumes) {
                 System.out.println(album.getNombre() + " - Fecha de lanzamiento: " + album.getFechaLanzamiento());
                 for (Cancion cancion : album.getCancionesAlbum()) {
