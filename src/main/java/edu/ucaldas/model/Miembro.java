@@ -44,14 +44,22 @@ public class Miembro {
         this.instrumentos = instrumentos;
     }
 
-    public Miembro buscarMiembro(String nombre){
-
-        if (this.nombre.equals(nombre)) {
+    /*
+     * Método que verifica que un miembro exista, si existe lo retorna
+     */
+    public Miembro buscarMiembro(Miembro miembro){
+        if (this.nombre != null && miembro != null && this.nombre.equals(miembro.getNombre())) {
             return this;
         } else {
             throw new MiembroExcepcion("El miembro no existe");
         }
-
+    }
+    public void eliminarMiembro(Miembro miembro){
+        if (this.nombre != null && miembro != null && this.nombre.equals(miembro.getNombre())) {
+            this.nombre = null;
+        } else {
+            throw new MiembroExcepcion("El miembro no existe");
+        }
     }
 
     @Override
