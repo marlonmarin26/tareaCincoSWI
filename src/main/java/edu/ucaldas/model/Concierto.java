@@ -2,6 +2,7 @@ package edu.ucaldas.model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -15,15 +16,17 @@ public class Concierto {
     private LocalTime hora;
     private int capacidad;
     private int boletasVendidas;
+    private List<Cancion> cancionesConcierto;
 
     public Concierto(String nombre, LocalDate fecha, String lugar, LocalTime hora, int capacidad,
-            int boletasVendidas) {
+            int boletasVendidas, List<Cancion> cancionesConcierto) {
         this.nombre = nombre;
         this.fecha = fecha;
         this.lugar = lugar;
         this.hora = hora;
         this.capacidad = capacidad;
         this.boletasVendidas = boletasVendidas;
+        this.cancionesConcierto = cancionesConcierto;
     }
 
     public Concierto() {
@@ -53,6 +56,10 @@ public class Concierto {
         return boletasVendidas;
     }
 
+    public List<Cancion> getCancionesConcierto() {
+        return cancionesConcierto;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -77,6 +84,10 @@ public class Concierto {
         this.boletasVendidas = boletasVendidas;
     }
 
+    public void setCancionesConcierto(List<Cancion> cancionesConcierto) {
+        this.cancionesConcierto = cancionesConcierto;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -94,8 +105,10 @@ public class Concierto {
                 && lugar.equals(other.lugar)
                 && hora.equals(other.hora)
                 && capacidad == other.capacidad
-                && boletasVendidas == other.boletasVendidas;
+                && boletasVendidas == other.boletasVendidas
+                && Objects.equals(cancionesConcierto, other.cancionesConcierto);       
     }
+    
 
     @Override
     public int hashCode() {
@@ -105,6 +118,9 @@ public class Concierto {
     @Override
     public String toString() {
         return "Concierto [nombre=" + nombre + ", fecha=" + fecha + ", lugar=" + lugar + ", hora=" + hora
-                + ", capacidad=" + capacidad + ", boletasVendidas=" + boletasVendidas + "]";
+                + ", capacidad=" + capacidad + ", boletasVendidas=" + boletasVendidas + ", cancionesConcierto="
+                + cancionesConcierto + "]";
     }
+
+    
 }
