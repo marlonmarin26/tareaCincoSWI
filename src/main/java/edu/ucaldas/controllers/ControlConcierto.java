@@ -49,6 +49,12 @@ public class ControlConcierto {
         }
     }
 
+    public void conciertosRealizados(){
+        for (Concierto concierto : conciertos) {
+            System.out.println("Nombre: " + concierto.getNombre() + ", Fecha" + concierto.getFecha() + ", Lugar" + concierto.getLugar() + ", Boletas Vendidas: " + concierto.getBoletasVendidas());
+        }
+    }
+
 
 
 }
