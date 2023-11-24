@@ -1,7 +1,4 @@
 package edu.ucaldas;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import edu.ucaldas.controllers.ControlAlbum;

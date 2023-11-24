@@ -12,49 +12,31 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import edu.ucaldas.model.Banda;
 import edu.ucaldas.model.Foto;
-import java.util.List;
-
-import edu.ucaldas.model.Banda;
 import edu.ucaldas.model.Miembro;
+import edu.ucaldas.model.MiembroExcepcion;
 import edu.ucaldas.model.Rol;
 
 public class ControlBanda {
-    private Banda banda;
-    
-    public ControlBanda(Banda banda) {
-        this.banda = banda;
-    }
-    public ControlBanda (){
-        this.banda = new Banda("", null, null, null);
-    }
-    /*
-     * método para agregar miembros a la banda
-     */
-    public void agregarMiembro(Miembro miembrp) {
-        try {
-            Miembro miembro = new Miembro();
-            Miembro miembroAgregar = miembro.buscarMiembro(miembro);
-            Banda banda = new Banda();
-            banda.adicionarMiembro(miembroAgregar);
-            
-        } catch (MiembroExcepcion e) {
+    private static Banda banda;
 
+    public static void agregarMiembro(Miembro miembro) {
+        try {
+            banda.adicionarMiembro(miembro);
+        } catch (MiembroExcepcion e) {
+            // Manejar la excepción
         }
-
     }
 
-    public void eliminarMiembro(Miembro miembro) {
+    public static void eliminarMiembro(Miembro miembro) {
         try {
-            Miembro miembroEliminar = new Miembro();
-            Miembro miembroEliminado = miembroEliminar.buscarMiembro(miembro);
-            Banda banda = new Banda();
-            miembroEliminado.eliminarMiembro(miembroEliminado);
-            banda.eliminarMiembro(miembroEliminado);
+            banda.eliminarMiembro(miembro);
         } catch (MiembroExcepcion e) {
-        // code for removing a member from the band
+            // Manejar la excepción
+        }
     }
 
-    public void crearActualizarBanda(String genero, LocalDate fechaCreacion, List<Foto> fotos, List<Miembro> miembros) {
+    public static void crearActualizarBanda(String genero, LocalDate fechaCreacion, List<Foto> fotos,
+            List<Miembro> miembros) {
         if (banda == null) {
             banda = new Banda(genero, fechaCreacion, fotos, miembros);
         } else {
@@ -65,22 +47,31 @@ public class ControlBanda {
         }
     }
 
-    public void datosCrearBanda(){
+    public static void datosCrearBanda() {
         Scanner scanner = new Scanner(System.in);
 
-        //crear o actualizar banda
+        // Crear o actualizar banda
         System.out.print("Ingrese el genero de la banda: ");
         String genero = scanner.nextLine();
         LocalDate fechaCreacion = LocalDate.now();
-        List<Foto> fotos = new ArrayList<Foto>();
-        JFrame frame = new JFrame(); // Crear un objeto JFrame (ventana)
-        JFileChooser fileChooser = new JFileChooser(); // Crear un objeto JFileChooser
-        fileChooser.setMultiSelectionEnabled(true); // Permitir selección múltiple
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de texto", "txt"); // Filtro para mostrar solo archivos de texto
+        List<Foto> fotos = seleccionarFotos();
+        List<Miembro> miembros = ingresarMiembros();
+
+        scanner.close();
+        crearActualizarBanda(genero, fechaCreacion, fotos, miembros);
+    }
+
+    private static List<Foto> seleccionarFotos() {
+        List<Foto> fotos = new ArrayList<>();
+        JFrame frame = new JFrame();
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setMultiSelectionEnabled(true);
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de imagen", "jpg", "png", "jpeg");
         fileChooser.setFileFilter(filter);
-        int result = fileChooser.showOpenDialog(frame); // Mostrar el cuadro de diálogo de selección de archivos
+        int result = fileChooser.showOpenDialog(frame);
+
         if (result == JFileChooser.APPROVE_OPTION) {
-            File[] selectedFiles = fileChooser.getSelectedFiles(); // Obtener los archivos seleccionados
+            File[] selectedFiles = fileChooser.getSelectedFiles();
             for (File file : selectedFiles) {
                 Foto foto = new Foto(file.toURI().toString());
                 fotos.add(foto);
@@ -88,11 +79,15 @@ public class ControlBanda {
         } else {
             System.out.println("Operación cancelada por el usuario.");
         }
-        List<Miembro> miembros = new ArrayList<Miembro>();
+        return fotos;
+    }
+
+    private static List<Miembro> ingresarMiembros() {
+        List<Miembro> miembros = new ArrayList<>();
         boolean continuarIngresando = true;
+        Scanner scanner = new Scanner(System.in);
 
         while (continuarIngresando) {
-            System.out.print("Ingresa un string: ");
             System.out.print("Ingrese el nombre del miembro: ");
             String nombre = scanner.nextLine();
             System.out.println("Ingrese el rol del miembro: ");
@@ -102,13 +97,11 @@ public class ControlBanda {
             String instrumentos = scanner.nextLine();
             Miembro miembro = new Miembro(nombre, rol, instrumentos);
             miembros.add(miembro);
-            System.out.print("¿Quieres ingresar otro miembro? (Si/No): "); // Preguntar al usuario si desea ingresar más miembros
+            System.out.print("¿Quieres ingresar otro miembro? (Si/No): ");
             String respuesta = scanner.nextLine().toLowerCase();
-            continuarIngresando = respuesta.equals("si"); // Si la respuesta no es "sí" sale del bucle
+            continuarIngresando = respuesta.equals("si");
         }
         scanner.close();
-        crearActualizarBanda(genero, fechaCreacion, fotos, miembros);
-        }
+        return miembros;
     }
-
 }
