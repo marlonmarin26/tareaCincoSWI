@@ -14,17 +14,11 @@ public class ControlAlbum {
     private static List<Album> listaAlbumes = new ArrayList<>();
 
     public static void crearAlbum() {
+        Album album = crearAlbumBasico();
+
         List<Cancion> listaCanciones = ControlCancion.getListaCanciones();
+        seleccionarCancionesParaAlbum(album, listaCanciones);
 
-        if (listaCanciones.isEmpty()) {
-            System.out.println("No hay canciones para crear un álbum. Agregue canciones primero.");
-            return;
-        }
-
-        System.out.println("Ingrese el nombre del álbum: ");
-        String nombreAlbum = scanner.nextLine();
-
-        Album album = new Album(nombreAlbum, LocalDate.now(), new ArrayList<>(listaCanciones));
         listaAlbumes.add(album);
 
         System.out.println("Álbum agregado exitosamente.");
@@ -53,9 +47,57 @@ public class ControlAlbum {
                 for (Cancion cancion : album.getCancionesAlbum()) {
                     System.out.println("  - " + cancion.getNombre() + " (" + cancion.getDuracion() + ")");
                 }
-                return; 
+                return;
             }
         }
         System.out.println("No se encontró un álbum con el nombre proporcionado: " + nombre);
     }
+
+    public static Album crearAlbumBasico() {
+        System.out.println("Ingrese el nombre del álbum: ");
+        String nombreAlbum = scanner.nextLine();
+
+        System.out.println("Ingrese la fecha de lanzamiento del álbum (formato YYYY-MM-DD): ");
+        String fechaString = scanner.nextLine();
+        LocalDate fechaLanzamiento = LocalDate.parse(fechaString);
+
+        return new Album(nombreAlbum, fechaLanzamiento, new ArrayList<>());
+    }
+
+    public static void seleccionarCancionesParaAlbum(Album album, List<Cancion> listaCanciones) {
+        // Mostrar la lista de canciones disponibles
+        System.out.println("Lista de canciones disponibles:");
+        for (int i = 0; i < listaCanciones.size(); i++) {
+            System.out.println((i + 1) + ". " + listaCanciones.get(i).getNombre());
+        }
+
+        // Solicitar al usuario que seleccione canciones hasta que decida parar
+        int indiceCancionSeleccionada;
+        do {
+            System.out.print("Seleccione el número de la canción que desea agregar al álbum (o 0 para terminar): ");
+            indiceCancionSeleccionada = scanner.nextInt();
+
+            if (indiceCancionSeleccionada >= 1 && indiceCancionSeleccionada <= listaCanciones.size()) {
+                Cancion cancionSeleccionada = listaCanciones.get(indiceCancionSeleccionada - 1);
+                album.getCancionesAlbum().add(cancionSeleccionada);
+                System.out.println("Canción agregada al álbum exitosamente.");
+            } else if (indiceCancionSeleccionada != 0) {
+                System.out.println("Número de canción no válido.");
+            }
+        } while (indiceCancionSeleccionada != 0);
+    }
+
+    public static Album obtenerAlbumPorNombre(String nombre) {
+        for (Album album : listaAlbumes) {
+            if (album.getNombre().equalsIgnoreCase(nombre)) {
+                return album;
+            }
+        }
+        return null; // Si no se encuentra un álbum con el nombre proporcionado
+    }
+
+    public static List<Album> getListaAlbumes() {
+        return listaAlbumes;
+    }
+    
 }
