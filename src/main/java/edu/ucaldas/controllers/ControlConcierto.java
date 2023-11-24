@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import edu.ucaldas.model.Album;
+import edu.ucaldas.model.Cancion;
 import edu.ucaldas.model.Concierto;
 import edu.ucaldas.model.ConciertoException;
 
@@ -23,6 +25,43 @@ public class ControlConcierto {
         Concierto nuevoConcierto = new Concierto(nombre, fecha, lugar, hora, capacidad, boletasVendidas, null);
 
         conciertos.add(nuevoConcierto);
+    }
+
+    public void agregarCancionesConcierto(){
+        Scanner scanner = new Scanner(System.in);
+        boolean continuarIngresando = true;
+        System.out.println("Ingrese el nombre del concierto: ");
+        String nombreConcierto = scanner.nextLine();
+        Concierto concierto = buscarConciertoPorNombre(nombreConcierto);
+        if (concierto != null) {
+            while (continuarIngresando) {
+                System.out.println("Ingrese el nombre del álbum: ");
+                String nombreAlbum = scanner.nextLine();
+                List<Album> album = ControlAlbum.getListaAlbumes();
+                System.out.println("Ingrese el nombre de la canción: ");
+                String nombreCancion = scanner.nextLine();
+                for (Album album2 : album) {
+                    if (album2.getNombre().equals(nombreAlbum)) {
+                        List<Cancion> canciones = album2.getCancionesAlbum();
+                        for (Cancion cancion : canciones) {
+                            if (cancion.getNombre().equals(nombreCancion)) {
+                                concierto.getCancionesConcierto().add(cancion);
+                                System.out.println("Canción agregada exitosamente");
+                            }else{
+                                System.out.println("No se encontró la canción");
+                            }
+                        }
+                    }else{
+                        System.out.println("No se encontró el álbum");
+                    }
+                }
+                System.out.println("¿Desea ingresar otra canción? (Si/No)");
+                String respuesta = scanner.nextLine();
+                if (respuesta.equalsIgnoreCase("No")) {
+                    continuarIngresando = false;
+                }
+            }
+        }
     }
 
     public Concierto buscarConciertoPorNombre(String nombre) throws ConciertoException{
