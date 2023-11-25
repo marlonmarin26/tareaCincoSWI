@@ -2,23 +2,31 @@ package edu.ucaldas.controllers;
 
 import java.util.List;
 import java.util.Scanner;
-import java.util.concurrent.CountDownLatch;
-import javax.swing.SwingWorker;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 import edu.ucaldas.model.Banda;
 import edu.ucaldas.model.Foto;
 import edu.ucaldas.model.Miembro;
 
 import java.util.ArrayList;
-import java.io.File;
 import java.time.LocalDate;
 
 public class ControlBanda {
-    private static CountDownLatch latch = new CountDownLatch(1);
     private static Banda banda = new Banda();
+    private static List<Foto> listaFotos = new ArrayList<>();
+
+    public static  List<Foto> getListaFotos() {
+        return listaFotos;
+    }
+
+    public void crearFotos(){
+        Foto foto = new Foto("foto_1.jpg");
+        Foto foto2 = new Foto("foto_2.jpg");
+        Foto foto3 = new Foto("foto_3.jpg");
+
+        listaFotos.add(foto);
+        listaFotos.add(foto2);
+        listaFotos.add(foto3);
+    }
 
     /**
      * Registra la banda ROCK&CODE con datos de prueba.
@@ -28,6 +36,7 @@ public class ControlBanda {
         String genero = "Rock";
         LocalDate fechaCreacion = LocalDate.of(2020, 1, 1);
 
+        crearFotos();
         // Lista de fotos
         List<Foto> fotos = new ArrayList<>();
         fotos.add(new Foto("ruta_foto_1.jpg"));
@@ -111,8 +120,7 @@ public class ControlBanda {
             banda.setFechaCreacion(nuevaFechaCreacion);
 
             // Actualizar las fotos de la banda
-            List<Foto> nuevasFotos = seleccionarFotos();
-            banda.setFotos(nuevasFotos);
+            agregarFotoBanda();
 
             System.out.println("Banda actualizada exitosamente.");
         } else {
@@ -122,67 +130,52 @@ public class ControlBanda {
     }
 
     /**
-     * Permite al usuario seleccionar una o varias fotos mediante un cuadro de
-     * diálogo de selección
-     * de archivos. Las fotos seleccionadas se devuelven como una lista de objetos
-     * de la clase Foto.
-     * Utiliza un hilo de ejecución SwingWorker para realizar la operación de
-     * selección de fotos de
-     * forma asíncrona y evita bloquear la interfaz de usuario durante la selección.
-     *
-     * @return Lista de fotos seleccionadas por el usuario.
+     * Permite al usuario seleccionar una o varias fotos mediante una lista de
+     * de fotos.
      */
-    public List<Foto> seleccionarFotos() {
-        List<Foto> fotosSeleccionadas = new ArrayList<>();
+    public void agregarFotoBanda() {
+        if (banda.getGenero() != null) {
+            Scanner scanner = new Scanner(System.in);
 
-        // Crear un SwingWorker para manejar la operación asíncrona
-        SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>() {
-            @Override
-            protected Void doInBackground() throws Exception {
-                JFrame frame = new JFrame();
-                JFileChooser fileChooser = new JFileChooser();
-                fileChooser.setMultiSelectionEnabled(true);
-                FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de imagen", "jpg", "png",
-                        "jpeg");
-                fileChooser.setFileFilter(filter);
-                int result = fileChooser.showOpenDialog(frame);
+            // Mostrar la lista de miembros disponibles
+            System.out.println("Lista de fotos disponibles:");
+            for (int i = 0; i < ControlBanda.getListaFotos().size(); i++) {
+                System.out.println((i + 1) + ". " + ControlBanda.getListaFotos().get(i).getUrl());
+            }
 
-                // Procesar los archivos seleccionados
-                if (result == JFileChooser.APPROVE_OPTION) {
-                    File[] selectedFiles = fileChooser.getSelectedFiles();
-                    for (File file : selectedFiles) {
-                        // Crear un objeto Foto con la URL del archivo seleccionado
-                        Foto foto = new Foto(file.toURI().toString());
-                        fotosSeleccionadas.add(foto);
+            boolean deseaAgregarMas = true;
+
+            do {
+                // Solicitar al usuario que seleccione un miembro
+                System.out.print("Seleccione el número de la foto que desea agregar a la banda (o 0 para salir): ");
+                int indiceFotoSeleccionado = scanner.nextInt();
+
+                // Verificar si el índice seleccionado es válido
+                if (indiceFotoSeleccionado >= 1
+                        && indiceFotoSeleccionado <= ControlBanda.getListaFotos().size()) {
+                    Foto fotoSeleccionado = ControlBanda.getListaFotos().get(indiceFotoSeleccionado - 1);
+
+                    // Verificar si la foto ya está en la banda
+                    if (!banda.getFotos().contains(fotoSeleccionado)) {
+                        banda.getFotos().add(fotoSeleccionado);
+                        System.out.println("Foto agregada a la banda exitosamente.");
+                    } else {
+                        System.out.println("La foto ya está en la banda.");
                     }
-                } else {
-                    System.out.println("Operación cancelada por el usuario.");
+                } else if (indiceFotoSeleccionado != 0) {
+                    System.out.println("Número de foto no válido.");
                 }
 
-                // Cerrar el frame después de seleccionar las fotos
-                frame.dispose();
+                // Preguntar si desea agregar más fotos
+                System.out.print("¿Desea agregar más fotos a la banda? (Sí/No): ");
+                String respuesta = scanner.next().toLowerCase();
+                deseaAgregarMas = respuesta.equals("si") || respuesta.equals("sí");
+            } while (deseaAgregarMas);
 
-                return null;
-            }
-
-            @Override
-            protected void done() {
-                // Contar el latch para indicar que la operación está completa
-                latch.countDown();
-            }
-        };
-
-        // Ejecutar el SwingWorker
-        worker.execute();
-
-        // Esperar a que la operación asíncrona se complete
-        try {
-            latch.await();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            System.out.println("Operación de agregar fotos a la banda completada.");
+        } else {
+            System.out.println("No hay una banda registrada. Registre una banda primero.");
         }
-
-        return fotosSeleccionadas;
     }
 
     /**
@@ -193,7 +186,7 @@ public class ControlBanda {
      * antes de proceder.
      */
     public void agregarMiembroBanda() {
-        if (banda != null) {
+        if (banda.getGenero() != null) {
             Scanner scanner = new Scanner(System.in);
 
             // Mostrar la lista de miembros disponibles

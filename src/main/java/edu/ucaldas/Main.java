@@ -26,14 +26,12 @@ public class Main {
                         controlBanda.mostrarBanda();
                         break;
                     case 3:
-                        // Aun no funciona seleccionarFotos
                         controlBanda.actualizarBanda();
                         break;
                     case 4:
                         controlMiembro.crearMiembros();
                         break;
                     case 5:
-                        // Falta validar corretamente que exista la banda
                         controlBanda.agregarMiembroBanda();
                         break;
                     case 6:
