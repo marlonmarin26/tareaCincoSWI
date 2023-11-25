@@ -15,6 +15,12 @@ public class Banda {
     private List<Foto> fotos = new ArrayList<>();
     private List<Miembro> miembros = new ArrayList<>();
 
+    public Banda(String genero, LocalDate fechaCreacion, List<Foto> fotos) {
+        this.genero = genero;
+        this.fechaCreacion = fechaCreacion;
+        this.fotos = fotos;
+    }
+
     public Banda(String genero, LocalDate fechaCreacion, List<Foto> fotos, List<Miembro> miembros) {
         this.genero = genero;
         this.fechaCreacion = fechaCreacion;
@@ -56,7 +62,7 @@ public class Banda {
     public void setMiembros(List<Miembro> miembros) {
         this.miembros = miembros;
     }
-    
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -80,29 +86,8 @@ public class Banda {
 
     @Override
     public String toString() {
-        return "Banda [genero=" + genero + ", fechaCreacion=" + fechaCreacion + ", fotos=" + fotos + ", miembros=" + miembros + "]";
+        return "Banda [genero=" + genero + ", fechaCreacion=" + fechaCreacion + ", fotos=" + fotos + ", miembros="
+                + miembros + "]";
     }
 
-    /*
-     * se adiciona miembro a la List de miembros
-     */
-    public void adicionarMiembro(Miembro miembro){
-        miembros.add(miembro);
-    }
-
-    public Miembro buscarMiembro(Miembro miembro){
-        if (miembros.contains(miembro)) {
-            return miembro;
-        } else {
-            throw new MiembroExcepcion("El miembro no existe");
-        }
-    }
-    public void eliminarMiembro(Miembro miembro){
-        if (miembros.contains(miembro)) {
-            miembros.remove(miembro);
-        } else {
-            throw new MiembroExcepcion("El miembro no existe");
-        }
-    }
-    
 }

@@ -13,6 +13,11 @@ public class Album {
     private LocalDate fechaLanzamiento;
     private List<Cancion> cancionesAlbum;
 
+    public Album(String nombre, LocalDate fechaLanzamiento) {
+        this.nombre = nombre;
+        this.fechaLanzamiento = fechaLanzamiento;
+    }
+
     public Album(String nombre, LocalDate fechaLanzamiento, List<Cancion> cancionesAlbum) {
         this.nombre = nombre;
         this.fechaLanzamiento = fechaLanzamiento;

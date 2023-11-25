@@ -1,61 +1,70 @@
 package edu.ucaldas;
 
-import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-import edu.ucaldas.controllers.ControlAlbum;
-import edu.ucaldas.controllers.ControlBanda;
-import edu.ucaldas.controllers.ControlCancion;
-import edu.ucaldas.controllers.ControlMiembro;
-import edu.ucaldas.model.Album;
-import edu.ucaldas.model.Banda;
-import edu.ucaldas.model.Miembro;
+import edu.ucaldas.controllers.*;
 
 public class Main {
     private static Scanner scanner = new Scanner(System.in);
-    private static Miembro miembro = new Miembro();
+    static ControlBanda controlBanda = new ControlBanda();
+    static ControlConcierto controlConcierto = new ControlConcierto();
+    static ControlMiembro controlMiembro = new ControlMiembro();
+    static ControlAlbum controlAlbum = new ControlAlbum();
+    static ControlCancion controlCancion = new ControlCancion();
 
     public static void main(String[] args) {
-        ControlBanda controlBanda = new ControlBanda();
-        controlBanda.seleccionarFotos();
         try {
             do {
                 int opcion = leerOpcion();
 
                 switch (opcion) {
                     case 1:
-                        ControlCancion.agregarCanciones();
+                        controlBanda.registrarBanda();
                         break;
                     case 2:
-                        ControlCancion.mostrarCanciones();
+                        controlBanda.mostrarBanda();
                         break;
                     case 3:
-                        ControlAlbum.crearAlbum();
+                        // Aun no funciona seleccionarFotos
+                        controlBanda.actualizarBanda();
                         break;
                     case 4:
-                        ControlAlbum.mostrarAlbunes();
+                        controlMiembro.crearMiembros();
                         break;
                     case 5:
-                        consultarAlbumPorNombre();
+                        // Falta validar corretamente que exista la banda
+                        controlBanda.agregarMiembroBanda();
                         break;
                     case 6:
-                        seleccionarCancionesParaAlbum();
+                        controlBanda.eliminarMiembroBanda();
                         break;
                     case 7:
-                        ControlBanda.datosCrearBanda();
+                        controlAlbum.crearAlbum();
                         break;
                     case 8:
-                        ControlBanda.actualizarBanda();
+                        controlCancion.crearCanciones();
                         break;
-                    case 9: 
-                        ControlMiembro.agregarMiembros();
+                    case 9:
+                        controlAlbum.seleccionarCancionesParaAlbum(ControlAlbum.getListaAlbumes(),
+                                ControlCancion.getListaCanciones());
                         break;
-                    case 10: 
-                        ControlMiembro.agregarFotos();
+                    case 10:
+                        controlAlbum.consultarAlbum();
                         break;
                     case 11:
-                        buscarFoto();
+                        controlConcierto.programarConcierto();
                         break;
+                    case 12:
+                        controlConcierto.agregarCancionesConcierto();
+                        break;
+                    case 13:
+                        controlConcierto.registrarBoletosVendidos();
+                        break;
+                    case 14:
+                        controlConcierto.consultarConciertos();
+                        break;
+
                     case 99:
                         System.exit(0);
                         break;
@@ -69,52 +78,40 @@ public class Main {
             scanner.close();
         }
     }
-    public static void buscarFoto(){
-        ControlBanda controlBanda = new ControlBanda();
-        controlBanda.seleccionarFotos();
-    }
-    
-
-    private static void seleccionarCancionesParaAlbum() {
-        System.out.print("Ingrese el nombre del álbum al que desea agregar canciones: ");
-        String nombreAlbum = scanner.nextLine();
-
-        // Obtener el álbum por nombre
-        Album album = ControlAlbum.obtenerAlbumPorNombre(nombreAlbum);
-
-        if (album != null) {
-            // Pasa la lista de canciones al método seleccionarCancionesParaAlbum
-            ControlAlbum.seleccionarCancionesParaAlbum(album, ControlCancion.getListaCanciones());
-        } else {
-            System.out.println("No se encontró un álbum con el nombre proporcionado: " + nombreAlbum);
-        }
-    }
-
-    private static void consultarAlbumPorNombre() {
-        System.out.print("Ingrese el nombre del álbum a consultar: ");
-        String nombreAlbum = scanner.nextLine();
-        ControlAlbum.consultarAlbumPorNombre(nombreAlbum);
-    }
 
     private static int leerOpcion() {
-        System.out.print("\n-----------------------------\n"
-                + "        ROCK&CODE MENU               \n"
-                + "-----------------------------        \n"
-                + " 1 - Agregar canción                 \n"
-                + " 2 - Mostrar canciones               \n"
-                + " 3 - Crear álbum                     \n"
-                + " 4 - Mostrar álbumes                 \n"
-                + " 5 - Consultar álbum                 \n"
-                + " 6 - Seleccionar canciones para álbum\n"
-                + " 7 - crear banda                     \n"
-                + " 8 - actualizar banda                \n"
-                + " 9 - agregar miembros                \n"
-                + " 10 - agregar fotos                  \n"
-                + "                                     \n"
-                + "\nElija una opción (99 para salir) > ");
+        int opcion = 0;
 
-        int opcion = scanner.nextInt();
-        scanner.nextLine();
+        try {
+            System.out.print("\n----------------------------- \n"
+                    + "        ROCK&CODE MENU                 \n"
+                    + "-----------------------------          \n"
+                    + " 1 - Crear banda ROCK&CODE             \n"
+                    + " 2 - Mostrar información de la banda   \n"
+                    + " 3 - Actualizar banda                  \n"
+                    + " 4 - Crear miembros                    \n"
+                    + " 5 - Agregar miembros a la banda       \n"
+                    + " 6 - Eliminar miembros de la banda     \n"
+                    + " 7 - Lanzar álbum                      \n"
+                    + " 8 - Crear canciones                   \n"
+                    + " 9 - Agregar canciones a álbum         \n"
+                    + " 10 - Consultar álbum                  \n"
+                    + " 11 - Programar un concierto           \n"
+                    + " 12 - Agregar canciones a concierto    \n"
+                    + " 13 - Registrar boletos vendidos       \n"
+                    + " 14 - Mostrar todos los conciertos     \n"
+                    + "                                       \n"
+                    + "\nElija una opción (99 para salir) > ");
+
+            opcion = scanner.nextInt();
+            scanner.nextLine(); // Consumir la nueva línea después de leer el entero
+
+        } catch (NoSuchElementException e) {
+            System.out.println("Entrada inválida. Por favor, ingrese un número.");
+            scanner.nextLine(); // Consumir la entrada no válida
+        }
+
         return opcion;
     }
+
 }

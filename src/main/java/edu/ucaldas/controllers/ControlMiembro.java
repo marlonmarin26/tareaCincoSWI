@@ -2,50 +2,47 @@ package edu.ucaldas.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-
-import edu.ucaldas.model.Cancion;
-import edu.ucaldas.model.Foto;
 import edu.ucaldas.model.Miembro;
 import edu.ucaldas.model.Rol;
 
-
 public class ControlMiembro {
-    private static Scanner scanner = new Scanner(System.in);
     private static List<Miembro> listaMiembros = new ArrayList<>();
-    private static List<Foto> listaFotos = new ArrayList<>();
 
     public static List<Miembro> getListaMiembros() {
         return listaMiembros;
     }
 
-    public static void agregarMiembros() {
-        Miembro miembro = new Miembro("Juan", Rol.BAJISTA, "Bajo");
-        Miembro miembro1 = new Miembro("Pedro", Rol.GUITARRISTA, "Guitarra");
-        Miembro miembro2 = new Miembro("Maria", Rol.VOCALISTA, "Voz");
+    /**
+     * Metodo que permite crear un miembro
+     */
+    public void crearMiembros() {
+        Miembro miembro1 = new Miembro("Juan", Rol.BAJISTA, "Bajo");
+        Miembro miembro2 = new Miembro("Pedro", Rol.GUITARRISTA, "Guitarra");
+        Miembro miembro3 = new Miembro("Maria", Rol.VOCALISTA, "Voz");
+        Miembro miembro4 = new Miembro("Carlos", Rol.BATERISTA, "Batería");
+        Miembro miembro5 = new Miembro("Ana", Rol.TECLADISTA, "Teclado");
+        Miembro miembro6 = new Miembro("Luis", Rol.VOCALISTA, "Voz");
+        Miembro miembro7 = new Miembro("Laura", Rol.GUITARRISTA, "Guitarra");
+        Miembro miembro8 = new Miembro("Javier", Rol.BAJISTA, "Bajo");
+        Miembro miembro9 = new Miembro("Sofia", Rol.BATERISTA, "Batería");
+        Miembro miembro10 = new Miembro("Eduardo", Rol.TECLADISTA, "Teclado");
+        Miembro miembro11 = new Miembro("Carmen", Rol.VOCALISTA, "Voz");
+        Miembro miembro12 = new Miembro("Roberto", Rol.GUITARRISTA, "Guitarra");
 
-        listaMiembros.add(miembro);
         listaMiembros.add(miembro1);
         listaMiembros.add(miembro2);
-    }
-    public static void mostrarMiembros() {
-        if (!listaMiembros.isEmpty()) {
-            System.out.println("Miembros:");
-            for (Miembro miembro : listaMiembros) {
-                System.out.println(miembro);
-            }
-        } else {
-            System.out.println("No hay canciones para mostrar.");
-        }
-    }
-    public static void agregarFotos() {
-        Foto foto = new Foto("foto1");
-        Foto foto1 = new Foto("foto2");
-        Foto foto2 = new Foto("foto2");
+        listaMiembros.add(miembro3);
+        listaMiembros.add(miembro4);
+        listaMiembros.add(miembro5);
+        listaMiembros.add(miembro6);
+        listaMiembros.add(miembro7);
+        listaMiembros.add(miembro8);
+        listaMiembros.add(miembro9);
+        listaMiembros.add(miembro10);
+        listaMiembros.add(miembro11);
+        listaMiembros.add(miembro12);
 
-        listaFotos.add(foto);
-        listaFotos.add(foto1);
-        listaFotos.add(foto2);
+        System.out.println("Miembros creados exitosamente.");
     }
 
 }

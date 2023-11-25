@@ -4,7 +4,7 @@ package edu.ucaldas.model;
  * Clase Foto, representa una foto de la banda.
  */
 public class Foto {
-    
+
     private String url;
 
     public Foto(String url) {

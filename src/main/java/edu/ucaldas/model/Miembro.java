@@ -47,14 +47,15 @@ public class Miembro {
     /*
      * Método que verifica que un miembro exista, si existe lo retorna
      */
-    public Miembro buscarMiembro(String nombre){
+    public Miembro buscarMiembro(String nombre) {
         if (this.nombre != null && this.nombre.equals(nombre)) {
             return this;
         } else {
             throw new MiembroExcepcion("El miembro no existe");
         }
     }
-    public void eliminarMiembro(Miembro miembro){
+
+    public void eliminarMiembro(Miembro miembro) {
         if (this.nombre != null && miembro != null && this.nombre.equals(miembro.getNombre())) {
             this.nombre = null;
         } else {
