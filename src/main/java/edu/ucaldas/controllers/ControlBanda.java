@@ -35,6 +35,7 @@ public class ControlBanda {
         }
     }
 
+
     public static void actualizarBanda() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el genero de la banda: ");
