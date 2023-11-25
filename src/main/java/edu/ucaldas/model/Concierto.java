@@ -106,9 +106,8 @@ public class Concierto {
                 && hora.equals(other.hora)
                 && capacidad == other.capacidad
                 && boletasVendidas == other.boletasVendidas
-                && Objects.equals(cancionesConcierto, other.cancionesConcierto);       
+                && Objects.equals(cancionesConcierto, other.cancionesConcierto);
     }
-    
 
     @Override
     public int hashCode() {
@@ -122,5 +121,4 @@ public class Concierto {
                 + cancionesConcierto + "]";
     }
 
-    
 }

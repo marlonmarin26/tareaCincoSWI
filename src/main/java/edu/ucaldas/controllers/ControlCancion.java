@@ -15,15 +15,37 @@ public class ControlCancion {
         return listaCanciones;
     }
 
-    public static void agregarCanciones() {
-        Cancion cancion = new Cancion("Hola", "3 Minutos");
-        Cancion cancion1 = new Cancion("Dia", "3 Minutos");
-        Cancion cancion2 = new Cancion("Mañana", "3 Minutos");
+    /**
+     * Crea canciones por defecto para luego añadirlas al album.
+     */
+    public void crearCanciones() {
+        Cancion cancion1 = new Cancion("Bohemian Rhapsody", "5:55");
+        Cancion cancion2 = new Cancion("Imagine", "3:03");
+        Cancion cancion3 = new Cancion("Hotel California", "6:30");
+        Cancion cancion4 = new Cancion("Like a Rolling Stone", "6:13");
+        Cancion cancion5 = new Cancion("Billie Jean", "4:54");
+        Cancion cancion6 = new Cancion("Hey Jude", "7:11");
+        Cancion cancion7 = new Cancion("Let It Be", "3:50");
+        Cancion cancion8 = new Cancion("Stairway to Heaven", "8:02");
+        Cancion cancion9 = new Cancion("Yesterday", "2:05");
+        Cancion cancion10 = new Cancion("Purple Haze", "2:51");
+        Cancion cancion11 = new Cancion("Sweet Child o' Mine", "5:55");
+        Cancion cancion12 = new Cancion("Imagine", "3:03");
 
-        listaCanciones.add(cancion);
         listaCanciones.add(cancion1);
         listaCanciones.add(cancion2);
-        System.out.println("Canciones agregadas exitosamente.");
+        listaCanciones.add(cancion3);
+        listaCanciones.add(cancion4);
+        listaCanciones.add(cancion5);
+        listaCanciones.add(cancion6);
+        listaCanciones.add(cancion7);
+        listaCanciones.add(cancion8);
+        listaCanciones.add(cancion9);
+        listaCanciones.add(cancion10);
+        listaCanciones.add(cancion11);
+        listaCanciones.add(cancion12);
+
+        System.out.println("Canciones creadas exitosamente.");
     }
 
     // Opción para agregar canciones, no se usa en el programa
@@ -49,6 +71,10 @@ public class ControlCancion {
         System.out.println("Canciones agregadas exitosamente.");
     }
 
+    // No se está usando en el programa
+    /**
+     * Muestra la lista de canciones registradas.
+     */
     public static void mostrarCanciones() {
         if (!listaCanciones.isEmpty()) {
             System.out.println("Canciones:");
