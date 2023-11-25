@@ -15,6 +15,8 @@ public class Main {
 
     public static void main(String[] args) {
         try {
+            boolean ejecutarPrograma = true;
+
             do {
                 int opcion = leerOpcion();
 
@@ -64,18 +66,19 @@ public class Main {
                         break;
 
                     case 99:
-                        System.exit(0);
+                        ejecutarPrograma = false;
                         break;
                     default:
                         System.out.println("Opción inválida");
                 }
-            } while (true);
+            } while (ejecutarPrograma);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
             scanner.close();
         }
     }
+
 
     private static int leerOpcion() {
         int opcion = 0;

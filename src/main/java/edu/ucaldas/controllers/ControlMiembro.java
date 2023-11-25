@@ -27,7 +27,7 @@ public class ControlMiembro {
         Miembro miembro9 = new Miembro("Sofia", Rol.BATERISTA, "Batería");
         Miembro miembro10 = new Miembro("Eduardo", Rol.TECLADISTA, "Teclado");
         Miembro miembro11 = new Miembro("Carmen", Rol.VOCALISTA, "Voz");
-        Miembro miembro12 = new Miembro("Roberto", Rol.GUITARRISTA, "Guitarra");
+        Miembro miembro12 = new Miembro("Roberto", Rol.GUITARRISTA, "Guitarra, Voz");
 
         listaMiembros.add(miembro1);
         listaMiembros.add(miembro2);

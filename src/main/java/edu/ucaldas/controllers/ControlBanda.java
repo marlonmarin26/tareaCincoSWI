@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.time.LocalDate;
 
 public class ControlBanda {
-    private static Banda banda = new Banda();
+    private Banda banda = new Banda();
     private static List<Foto> listaFotos = new ArrayList<>();
 
     public static  List<Foto> getListaFotos() {
@@ -174,7 +174,7 @@ public class ControlBanda {
 
             System.out.println("Operación de agregar fotos a la banda completada.");
         } else {
-            System.out.println("No hay una banda registrada. Registre una banda primero.");
+            System.out.println("No hay una banda registrada. Registre una primero");
         }
     }
 
