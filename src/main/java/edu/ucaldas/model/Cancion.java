@@ -4,6 +4,9 @@ import java.util.Objects;
 
 /**
  * Clase Cancion, representa una cancion de un album.
+ * 
+ * @author MJP
+ * @version 1.0
  */
 public class Cancion {
 

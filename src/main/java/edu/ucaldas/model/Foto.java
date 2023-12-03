@@ -2,6 +2,9 @@ package edu.ucaldas.model;
 
 /**
  * Clase Foto, representa una foto de la banda.
+ * 
+ * @author  MJP
+ * @version 1.0
  */
 public class Foto {
 

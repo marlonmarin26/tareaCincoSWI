@@ -5,6 +5,12 @@ import java.util.List;
 import edu.ucaldas.model.Miembro;
 import edu.ucaldas.model.Rol;
 
+/**
+ * Controlador para la creación y consulta de miembros.
+ * 
+ * @author MJP
+ * @version 1.0
+ */
 public class ControlMiembro {
     private static List<Miembro> listaMiembros = new ArrayList<>();
 

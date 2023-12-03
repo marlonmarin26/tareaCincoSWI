@@ -33,3 +33,5 @@ i
 9src/main/java/edu/ucaldas/controllers/ControlCancion.java,d\6\d6119398e7954c34975016df7db367810a0ef634
 E
 .vscode/settings.json,8\9\89aa447020cdcb580cea0495694d46a55941edbe
+>
+doc/index.html,5\4\54b5e214b447551b0e0c8c11a04a296ef88222e4

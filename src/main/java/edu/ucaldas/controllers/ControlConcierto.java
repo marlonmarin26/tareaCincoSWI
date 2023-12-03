@@ -10,11 +10,22 @@ import java.util.Scanner;
 
 import edu.ucaldas.model.*;
 
+/**
+ * Controlador para realizar operaciones con conciertos, como programar
+ * conciertos, agregar canciones a un concierto, registrar boletos vendidos,
+ * consultar información de un concierto, etc.
+ * 
+ * @author MJP
+ * @version 1.0
+ */
 public class ControlConcierto {
 
     private static Scanner scanner = new Scanner(System.in);
     private List<Concierto> conciertos;
 
+    /**
+     * Constructor por defecto.
+     */
     public ControlConcierto() {
         this.conciertos = new ArrayList<>();
     }
@@ -141,7 +152,7 @@ public class ControlConcierto {
     /**
      * Obtiene la lista de canciones que están en álbumes.
      * 
-     * @return
+     * @return Lista de canciones que están en álbumes.
      */
     private List<Cancion> obtenerCancionesEnAlbumes() {
         List<Cancion> cancionesEnAlbumes = new ArrayList<>();

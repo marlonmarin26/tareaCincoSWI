@@ -4,6 +4,9 @@ import java.util.Objects;
 
 /**
  * Clase Miembro, representa a un miembro de la banda.
+ * 
+ * @author MJP
+ * @version 1.0
  */
 public class Miembro {
 
@@ -44,8 +47,11 @@ public class Miembro {
         this.instrumentos = instrumentos;
     }
 
-    /*
-     * Método que verifica que un miembro exista, si existe lo retorna
+    /**
+     * Busca un miembro por su nombre.
+     * 
+     * @param nombre, nombre del miembro a buscar.
+     * @return Miembro, el miembro encontrado.
      */
     public Miembro buscarMiembro(String nombre) {
         if (this.nombre != null && this.nombre.equals(nombre)) {
@@ -55,6 +61,11 @@ public class Miembro {
         }
     }
 
+    /**
+     * Agrega un miembro a la banda.
+     * 
+     * @param miembro miembro a agregar.
+     */
     public void eliminarMiembro(Miembro miembro) {
         if (this.nombre != null && miembro != null && this.nombre.equals(miembro.getNombre())) {
             this.nombre = null;

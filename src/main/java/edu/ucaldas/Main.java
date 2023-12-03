@@ -5,6 +5,12 @@ import java.util.Scanner;
 
 import edu.ucaldas.controllers.*;
 
+/**
+ * Clase Main, representa el punto de entrada del programa.
+ * 
+ * @author MJP
+ * @version 1.0
+ */
 public class Main {
     private static Scanner scanner = new Scanner(System.in);
     static ControlBanda controlBanda = new ControlBanda();
@@ -13,6 +19,11 @@ public class Main {
     static ControlAlbum controlAlbum = new ControlAlbum();
     static ControlCancion controlCancion = new ControlCancion();
 
+    /**
+     * Método principal del programa.
+     * 
+     * @param args Argumentos de la línea de comandos.
+     */
     public static void main(String[] args) {
         try {
             boolean ejecutarPrograma = true;
@@ -79,7 +90,11 @@ public class Main {
         }
     }
 
-
+    /**
+     * Lee la opción ingresada por el usuario.
+     * 
+     * @return Opción ingresada por el usuario.
+     */
     private static int leerOpcion() {
         int opcion = 0;
 

@@ -1,42 +1,42 @@
 
-@	java:S106"+Replace this use of System.out by a logger.(‹·¨ú
-@	java:S106"+Replace this use of System.out by a logger.(³×òñ
-@	java:S106""+Replace this use of System.out by a logger.(õ¤
-E	java:S106%"+Replace this use of System.out by a logger.(±¥§îøÿÿÿÿ
-E	java:S106*"+Replace this use of System.out by a logger.(ş± Ùøÿÿÿÿ
-E	java:S106,"+Replace this use of System.out by a logger.(©é”·ıÿÿÿÿ
-E	java:S1061"+Replace this use of System.out by a logger.(ü†÷ÿÿÿÿÿ
-E	java:S106>"+Replace this use of System.out by a logger.(ùØ£Âşÿÿÿÿ
-@	java:S106@"+Replace this use of System.out by a logger.(äÜ«è
->	java:S108A")Either remove or fill this block of code.(Úîø›
+@	java:S106'"+Replace this use of System.out by a logger.(‹·¨ú
+@	java:S106*"+Replace this use of System.out by a logger.(³×òñ
+@	java:S106-"+Replace this use of System.out by a logger.(õ¤
+E	java:S1060"+Replace this use of System.out by a logger.(±¥§îøÿÿÿÿ
+L	java:S1065"+Replace this use of System.out by a logger.(ş± Ùøÿÿÿÿ8øø¿Ã1
+E	java:S1067"+Replace this use of System.out by a logger.(©é”·ıÿÿÿÿ
+E	java:S106<"+Replace this use of System.out by a logger.(ü†÷ÿÿÿÿÿ
+E	java:S106I"+Replace this use of System.out by a logger.(ùØ£Âşÿÿÿÿ
+@	java:S106K"+Replace this use of System.out by a logger.(äÜ«è
+>	java:S108L")Either remove or fill this block of code.(Úîø›
 V
-java:S1117M";Rename "scanner" which hides the field declared at line 15.(ù ƒ‘üÿÿÿÿ
-E	java:S106S"+Replace this use of System.out by a logger.(—Şšùÿÿÿÿ
-E	java:S106["+Replace this use of System.out by a logger.(‡±ÙÕûÿÿÿÿ
-E	java:S106a"+Replace this use of System.out by a logger.(Û¬ñĞÿÿÿÿÿ
-E	java:S106j"+Replace this use of System.out by a logger.(åÇòÃşÿÿÿÿ
-@	java:S106l"+Replace this use of System.out by a logger.(óÖ‰‰
-@	java:S106p"+Replace this use of System.out by a logger.(ğ‚Û
-?	java:S106r"+Replace this use of System.out by a logger.(š‘‚s
-@	java:S106u"+Replace this use of System.out by a logger.(Å¥±ì
-E	java:S106~"+Replace this use of System.out by a logger.(¨í¤€üÿÿÿÿ
-F	java:S106€"+Replace this use of System.out by a logger.(‰èÒşÿÿÿÿ
-A	java:S106‰"+Replace this use of System.out by a logger.(—©Ó
+java:S1117X";Rename "scanner" which hides the field declared at line 23.(ù ƒ‘üÿÿÿÿ
+E	java:S106^"+Replace this use of System.out by a logger.(—Şšùÿÿÿÿ
+E	java:S106f"+Replace this use of System.out by a logger.(‡±ÙÕûÿÿÿÿ
+E	java:S106l"+Replace this use of System.out by a logger.(Û¬ñĞÿÿÿÿÿ
+E	java:S106u"+Replace this use of System.out by a logger.(åÇòÃşÿÿÿÿ
+G	java:S106w"+Replace this use of System.out by a logger.(óÖ‰‰8‹ù¿Ã1
+@	java:S106{"+Replace this use of System.out by a logger.(ğ‚Û
+?	java:S106}"+Replace this use of System.out by a logger.(š‘‚s
+A	java:S106€"+Replace this use of System.out by a logger.(Å¥±ì
+F	java:S106‰"+Replace this use of System.out by a logger.(¨í¤€üÿÿÿÿ
+M	java:S106‹"+Replace this use of System.out by a logger.(‰èÒşÿÿÿÿ8“ù¿Ã1
+H	java:S106”"+Replace this use of System.out by a logger.(—©Ó8–ù¿Ã1
 W
-java:S1117¦";Rename "scanner" which hides the field declared at line 15.(ù ƒ‘üÿÿÿÿ
-A	java:S106¨"+Replace this use of System.out by a logger.(‹·¨ú
-A	java:S106¯"+Replace this use of System.out by a logger.(öíâè
-F	java:S106¶"+Replace this use of System.out by a logger.(±ÖŒ øÿÿÿÿ
-F	java:S106¹"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ
-A	java:S106»"+Replace this use of System.out by a logger.(Å¥±ì
-A	java:S106Ñ"+Replace this use of System.out by a logger.( øè¨
-F	java:S106Ò"+Replace this use of System.out by a logger.(ğ¦”‘ùÿÿÿÿ
-F	java:S106Ó"+Replace this use of System.out by a logger.(úâº¨şÿÿÿÿ
-A	java:S106Ô"+Replace this use of System.out by a logger.(°¨™¾
-A	java:S106Õ"+Replace this use of System.out by a logger.(é‘Ì’
-A	java:S106Ö"+Replace this use of System.out by a logger.(üÏ„É
-A	java:S106×"+Replace this use of System.out by a logger.(¶²í
-A	java:S106Û"+Replace this use of System.out by a logger.(áÇ÷‹
-F	java:S106İ"+Replace this use of System.out by a logger.(÷Êøßùÿÿÿÿ
-@	java:S106à"+Replace this use of System.out by a logger.(×ˆ‚
-F	java:S106ã"+Replace this use of System.out by a logger.(Ïíõšûÿÿÿÿ
+java:S1117±";Rename "scanner" which hides the field declared at line 23.(ù ƒ‘üÿÿÿÿ
+A	java:S106³"+Replace this use of System.out by a logger.(‹·¨ú
+A	java:S106º"+Replace this use of System.out by a logger.(öíâè
+F	java:S106Á"+Replace this use of System.out by a logger.(±ÖŒ øÿÿÿÿ
+F	java:S106Ä"+Replace this use of System.out by a logger.(©şêÜúÿÿÿÿ
+A	java:S106Æ"+Replace this use of System.out by a logger.(Å¥±ì
+A	java:S106Ü"+Replace this use of System.out by a logger.( øè¨
+F	java:S106İ"+Replace this use of System.out by a logger.(ğ¦”‘ùÿÿÿÿ
+F	java:S106Ş"+Replace this use of System.out by a logger.(úâº¨şÿÿÿÿ
+A	java:S106ß"+Replace this use of System.out by a logger.(°¨™¾
+A	java:S106à"+Replace this use of System.out by a logger.(é‘Ì’
+A	java:S106á"+Replace this use of System.out by a logger.(üÏ„É
+A	java:S106â"+Replace this use of System.out by a logger.(¶²í
+A	java:S106æ"+Replace this use of System.out by a logger.(áÇ÷‹
+M	java:S106è"+Replace this use of System.out by a logger.(÷Êøßùÿÿÿÿ8²ù¿Ã1
+G	java:S106ë"+Replace this use of System.out by a logger.(×ˆ‚8²ù¿Ã1
+F	java:S106î"+Replace this use of System.out by a logger.(Ïíõšûÿÿÿÿ

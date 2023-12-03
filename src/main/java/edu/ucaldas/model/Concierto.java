@@ -7,6 +7,9 @@ import java.util.Objects;
 
 /**
  * Clase Concierto, representa un concierto de una banda.
+ * 
+ * @author MJP
+ * @version 1.0
  */
 public class Concierto {
 

@@ -6,11 +6,22 @@ import java.util.Scanner;
 
 import edu.ucaldas.model.Cancion;
 
+/**
+ * Controlador para la creación y consulta de canciones.
+ * 
+ * @author MJP
+ * @version 1.0
+ */
 public class ControlCancion {
 
     private static Scanner scanner = new Scanner(System.in);
     private static List<Cancion> listaCanciones = new ArrayList<>();
 
+    /**
+     * Obtiene la lista de canciones.
+     * 
+     * @return lista de canciones
+     */
     public static List<Cancion> getListaCanciones() {
         return listaCanciones;
     }
@@ -48,7 +59,10 @@ public class ControlCancion {
         System.out.println("Canciones creadas exitosamente.");
     }
 
-    // Opción para agregar canciones, no se usa en el programa
+    /**
+     * Agrega una canción a la lista de canciones.
+     * No se está usando en el programa.
+     */
     public static void agregarCancion() {
         do {
             System.out.print("Ingrese el nombre de la canción: ");
@@ -71,9 +85,9 @@ public class ControlCancion {
         System.out.println("Canciones agregadas exitosamente.");
     }
 
-    // No se está usando en el programa
     /**
      * Muestra la lista de canciones registradas.
+     * No se está usando en el programa.
      */
     public static void mostrarCanciones() {
         if (!listaCanciones.isEmpty()) {

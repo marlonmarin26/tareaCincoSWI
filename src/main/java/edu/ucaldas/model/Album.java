@@ -6,6 +6,9 @@ import java.util.Objects;
 
 /**
  * Clase Album, representa un album de una banda.
+ * 
+ * @author MJP
+ * @version 1.0
  */
 public class Album {
 

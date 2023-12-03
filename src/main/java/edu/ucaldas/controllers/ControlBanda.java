@@ -10,15 +10,29 @@ import edu.ucaldas.model.Miembro;
 import java.util.ArrayList;
 import java.time.LocalDate;
 
+/**
+ * Controlador para realizar operaciones referidas a la banda ROCK&CODE.
+ * 
+ * @author MJP
+ * @version 1.0
+ */
 public class ControlBanda {
     private Banda banda = new Banda();
     private static List<Foto> listaFotos = new ArrayList<>();
 
-    public static  List<Foto> getListaFotos() {
+    /**
+     * Obtiene la lista de fotos disponibles para agregar a la banda.
+     * 
+     * @return Lista de fotos disponibles.
+     */
+    public static List<Foto> getListaFotos() {
         return listaFotos;
     }
 
-    public void crearFotos(){
+    /**
+     * Crea fotos por defecto para luego añadirlas a la banda.
+     */
+    public void crearFotos() {
         Foto foto = new Foto("foto_1.jpg");
         Foto foto2 = new Foto("foto_2.jpg");
         Foto foto3 = new Foto("foto_3.jpg");
@@ -41,7 +55,6 @@ public class ControlBanda {
         List<Foto> fotos = new ArrayList<>();
         fotos.add(new Foto("ruta_foto_1.jpg"));
         fotos.add(new Foto("ruta_foto_2.jpg"));
-        // Agrega más fotos según sea necesario
 
         // Crear o actualizar banda sin miembros
         if (banda == null) {
@@ -180,10 +193,9 @@ public class ControlBanda {
 
     /**
      * Permite agregar miembros a la banda seleccionada, mostrando y seleccionando
-     * de una lista de miembros
-     * disponibles. La operación es repetida según la decisión del usuario. Se
-     * valida la existencia de la banda
-     * antes de proceder.
+     * de una lista de miembros disponibles.
+     * La operación es repetida según la decisión del usuario. Se
+     * valida la existencia de la banda antes de proceder.
      */
     public void agregarMiembroBanda() {
         if (banda.getGenero() != null) {
@@ -232,9 +244,8 @@ public class ControlBanda {
 
     /**
      * Permite al usuario eliminar miembros de la banda seleccionada. Muestra la
-     * lista de miembros en la
-     * banda, permite seleccionar miembros para eliminar y solicita confirmación
-     * después de cada eliminación.
+     * lista de miembros en la banda, permite seleccionar miembros para eliminar y
+     * solicita confirmación después de cada eliminación.
      * La operación se repite hasta que el usuario elige no eliminar más miembros.
      * Muestra un mensaje si la banda no está registrada.
      */

@@ -7,6 +7,9 @@ import java.util.Objects;
 
 /**
  * Clase Banda, representa una banda musical.
+ * 
+ * @author MJP
+ * @version 1.0 
  */
 public class Banda {
 
