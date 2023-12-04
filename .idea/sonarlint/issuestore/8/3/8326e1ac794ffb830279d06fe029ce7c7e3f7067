@@ -1,6 +1,6 @@
 
-G	java:S106H"+Replace this use of System.out by a logger.(Â¥öİ8¦Ö§ÄÀ1
-L	java:S106W"+Replace this use of System.out by a logger.(óĞàïøÿÿÿÿ8ñƒ©ÄÀ1
+G	java:S106S"+Replace this use of System.out by a logger.(Â¥öİ8¦Ö§ÄÀ1
+L	java:S106f"+Replace this use of System.out by a logger.(óĞàïøÿÿÿÿ8ñƒ©ÄÀ1
 M
-java:S6126W"2Replace this String concatenation with Text block.(óĞàïøÿÿÿÿ
-G	java:S106o"+Replace this use of System.out by a logger.(Å¥±ì8Ó±ÇÄÀ1
+java:S6126f"2Replace this String concatenation with Text block.(óĞàïøÿÿÿÿ
+G	java:S106~"+Replace this use of System.out by a logger.(Å¥±ì8Ó±ÇÄÀ1
