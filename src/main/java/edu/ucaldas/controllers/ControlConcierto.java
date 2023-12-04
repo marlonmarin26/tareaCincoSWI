@@ -31,6 +31,13 @@ public class ControlConcierto {
     }
 
     /**
+     * @return the conciertos
+     */
+    public List<Concierto> getConciertos() {
+        return conciertos;
+    }
+
+    /**
      * Permite al usuario ingresar la información de un nuevo concierto y lo agrega
      * a la lista de conciertos.
      */
@@ -85,7 +92,6 @@ public class ControlConcierto {
      */
     public void agregarCancionesConcierto() {
         try {
-            Scanner scanner = new Scanner(System.in);
 
             // Mostrar la lista de conciertos disponibles
             mostrarListaConciertos();

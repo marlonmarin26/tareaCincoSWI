@@ -214,7 +214,7 @@ public class ControlAlbum {
     /**
      * Muestra la lista de álbumes disponibles.
      */
-    public static List<Album> getListaAlbumes() {
+    public List<Album> getListaAlbumes() {
         return listaAlbumes;
     }
 
